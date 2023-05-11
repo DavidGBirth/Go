@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"projetoTeste/calc"
+	"main/calc"
 )
 
 func main() {
 	var num1 int = 4
-	num2 := 0
+	num2 := 2
 
 	result, err := calc.Dividir(num1, num2)
 
