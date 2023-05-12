@@ -1,14 +1,16 @@
 package handlers
 
 import (
-	"api-postgres/models"
 	"encoding/json"
 	"log"
+	"models"
 	"net/http"
 	"strconv"
+
+	"github.com/go-chi/chi"
 )
 
-func Get(w http.ResponseWriter, r *http.Response) {
+func Get(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil {
 		log.Printf("Erro ao fazer parse do id: %v", err)

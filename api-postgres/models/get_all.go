@@ -1,18 +1,20 @@
 package models
 
-func GetAll(id int64) (todos []Todo, err error) {
+import "db"
+
+func GetAll() (todos []Todo, err error) {
 	conn, err := db.OpenConnection()
 	if err != nil {
 		return
 	}
 	defer conn.Close()
 
-	rows, err := conn.Query(`SELECT * FROM`)
+	rows, err := conn.Query(`SELECT * FROM todos`)
 	if err != nil {
 		return
 	}
 
-	for row.Next() {
+	for rows.Next() {
 		var todo Todo
 
 		err = rows.Scan(&todo.ID, &todo.Title, &todo.Description, &todo.Done)
@@ -23,5 +25,5 @@ func GetAll(id int64) (todos []Todo, err error) {
 		todos = append(todos, todo)
 	}
 
-	return 
+	return todos, err
 }

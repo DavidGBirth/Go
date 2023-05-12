@@ -1,8 +1,9 @@
 package main
 
 import (
-	"api-postgres/configs"
+	"configs"
 	"fmt"
+	"handlers"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -20,6 +21,7 @@ func main() {
 	r.Post("/", handlers.Create)
 	r.Put("/{id}", handlers.Update)
 	r.Delete("/{id}", handlers.Delete)
-
-	http.ListenAndServe(fmt.Sprintf(":%s", configs.GetServerPort()))
+	fmt.Println("Chegou no ListenAndServe", configs.GetDB())
+	fmt.Println("API", configs.GetAPI())
+	http.ListenAndServe(fmt.Sprintf(":%s", configs.GetServerPort()), r)
 }

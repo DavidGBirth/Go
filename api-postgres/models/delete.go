@@ -1,6 +1,6 @@
 package models
 
-import "api-postgres/db"
+import "db"
 
 func Delete(id int64) (int64, error) {
 	conn, err := db.OpenConnection()

@@ -1,14 +1,16 @@
 package handlers
 
 import (
-	"api-postgres/models"
 	"encoding/json"
 	"log"
+	"models"
 	"net/http"
 	"strconv"
+
+	"github.com/go-chi/chi"
 )
 
-func Update(w http.ResponseWriter, r *http.Request) {
+func Delete(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil {
 		log.Printf("Erro ao fazer parse do id: %v", err)

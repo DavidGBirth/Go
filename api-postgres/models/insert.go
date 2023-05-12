@@ -1,7 +1,7 @@
 package models
 
 import (
-	"api-postgres/db"
+	"db"
 )
 
 func Insert(todo Todo) (id int64, err error) {

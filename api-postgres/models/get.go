@@ -1,5 +1,7 @@
 package models
 
+import "db"
+
 func Get(id int64) (todo Todo, err error) {
 	conn, err := db.OpenConnection()
 	if err != nil {

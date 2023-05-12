@@ -1,11 +1,13 @@
 package handlers
 
 import (
-	"api-postgres/models"
 	"encoding/json"
 	"log"
+	"models"
 	"net/http"
 	"strconv"
+
+	"github.com/go-chi/chi"
 )
 
 func Update(w http.ResponseWriter, r *http.Request) {
